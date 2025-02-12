@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 选中状态文字样式 -->
+    <style name="bottom_tab_title_active">
+        <item name="android:textSize">13sp</item>
+    </style>
+    <!-- 未选中状态文字样式 -->
+    <style name="bottom_tab_title_inactive">
+        <item name="android:textSize">13sp</item>
+    </style>
+</resources>
