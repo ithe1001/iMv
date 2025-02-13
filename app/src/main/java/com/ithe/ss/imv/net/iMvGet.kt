@@ -31,8 +31,6 @@ class RetrofitProvider {
     }
 }
 
-val videoTypeList = LabelCacheProvider.get().getLabels().filter { it.selected }.map { it.id }
-
 interface VideoApi {
 
     @GET("api/ksvideo")
@@ -65,10 +63,13 @@ class IMVCenter {
         }
     }
 
+    private val PRELOAD_COUNT = 3
     private val DEFAULE_URL =
         "https://alimov2.a.kwimgs.com/upic/2024/01/22/20/BMjAyNDAxMjIyMDA2MTJfMzgyMzQ3MjQ1XzEyMjc2MDIzMjEzOV8xXzM=_b_B46d94e5bc6f667add367442e22fee82f.mp4?clientCacheKey=3xw53em5esqzpiu_b.mp4&tt=b&di=78e498d6&bp=13414"
     private val videoList = CopyOnWriteArrayList<String>()
-    private val PRELOAD_COUNT = 3
+    private val videoTypeList by lazy {
+        LabelCacheProvider.get().getLabels().filter { it.selected }.map { it.id }
+    }
 
     fun initVideoList() {
         for (i in 0..PRELOAD_COUNT) {
